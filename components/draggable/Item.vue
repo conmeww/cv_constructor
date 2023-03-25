@@ -20,34 +20,34 @@ const a = onKeyStroke("Backspace", (e) => {
 
 <template>
     <div :title="new Date(task.createdAt).toLocaleDateString()" 
-     class="task bg-white p-2 mb-2 rounded shadow-sm max-w-[250px] flex"
+     class="drag-item bg-white p-2 mb-2 rounded-sm border border-gray-300 relative  cursor-pointer flex"
      @focus="focused = true" 
      @blur="focused = false"
      tabindex="0">  
-      <DraggableDragHandle class="pr-2"/>
+      <DraggableDragHandle class="pr-2 absolute -left-5"/>
       <span>{{ task.title }}</span>
     </div>
   </template>
 
 <style scoped>
 
-.sortable-chosen {
-  background: green;
+.drag-item:hover .drag-handle{
+
 }
-.sortable-drag .task {
-  transform: rotate(5deg)
+.sortable-drag .drag-item {
+
 }
-.sortable-ghost .task {
+.sortable-ghost .drag-item {
   position: relative;
 }
-.sortable-ghost .task::after {
-  content: "";
-  @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-300 rounded;
+.sortable-ghost .drag-item::after {
+  /*content: "";*/
+  /*@apply absolute top-0 bottom-0 left-0 right-0 bg-gray-50 border-0 rounded;*/
 }
 
-.task:focus, .task:focus-visible {
-  @apply outline-gray-400 !important;
-  outline: gray auto 1px;
+.drag-item:focus, .drag-item:focus-visible {
+  /*@apply outline-gray-400 !important;*/
+  /*outline: gray auto 1px;*/
 }
 
 </style>

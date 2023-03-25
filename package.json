@@ -20,8 +20,10 @@
     "@vuepic/vue-datepicker": "^4.2.2",
     "@vueuse/core": "^9.13.0",
     "nanoid": "^4.0.1",
+    "smooth-dnd": "^0.12.1",
     "tw-elements": "^1.0.0-beta1",
     "typescript": "^5.0.2",
+    "vue3-smooth-dnd": "^0.0.4",
     "vuedraggable": "^4.1.0"
   }
 }

@@ -4547,6 +4547,11 @@ smob@^0.0.6:
   resolved "https://registry.yarnpkg.com/smob/-/smob-0.0.6.tgz#09b268fea916158a2781c152044c6155adbb8aa1"
   integrity sha512-V21+XeNni+tTyiST1MHsa84AQhT1aFZipzPpOFAVB8DkHzwJyjjAmt9bgwnuZiZWnIbMo2duE29wybxv/7HWUw==
 
+smooth-dnd@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/smooth-dnd/-/smooth-dnd-0.12.1.tgz#cdb44c972355659e32770368b29b6a80e0ed96f1"
+  integrity sha512-Dndj/MOG7VP83mvzfGCLGzV2HuK1lWachMtWl/Iuk6zV7noDycIBnflwaPuDzoaapEl3Pc4+ybJArkkx9sxPZg==
+
 sortablejs@1.14.0:
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.14.0.tgz#6d2e17ccbdb25f464734df621d4f35d4ab35b3d8"
@@ -5163,6 +5168,13 @@ vue-router@^4.1.6:
   integrity sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==
   dependencies:
     "@vue/devtools-api" "^6.4.5"
+
+vue3-smooth-dnd@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/vue3-smooth-dnd/-/vue3-smooth-dnd-0.0.4.tgz#74b6838e7b361ce443cea784595e0a96b1ec4985"
+  integrity sha512-aPfPnUcF7cRlX/5pJeqam51NltzW5qsQNiJuAY/s73nJ9/yRKNpNNOItjpK11GusEkiK957Uf+e8ERUCabapSg==
+  dependencies:
+    smooth-dnd "^0.12.1"
 
 vue@^3.2.47:
   version "3.2.47"

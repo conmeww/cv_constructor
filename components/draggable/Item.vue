@@ -1,53 +1,54 @@
-<script setup lang="ts">
-import { Task, ID } from '../../types/index';
+<script lang="ts" setup>
+import {SampleItem, ID} from '../../types/index';
 import {onKeyStroke} from "@vueuse/core";
+import {ref} from 'vue'
+import {TransitionRoot} from '@headlessui/vue'
 
 const props = defineProps<{
-    task: Task
+  item: SampleItem
 }>()
-
 const emit = defineEmits<{
   (e: "delete", payload: ID): void
 }>()
-
 const focused = ref(false)
-
+let accordionVisible = ref(false)
 const a = onKeyStroke("Backspace", (e) => {
-  if (focused.value) emit("delete", props.task.id)
+  if (focused.value) emit("delete", props.item.id)
 })
-
 </script>
-
 <template>
-    <div :title="new Date(task.createdAt).toLocaleDateString()" 
-     class="drag-item bg-white p-2 mb-2 rounded-sm border border-gray-300 relative  cursor-pointer flex"
-     @focus="focused = true" 
-     @blur="focused = false"
-     tabindex="0">  
-      <DraggableDragHandle class="pr-2 absolute -left-5"/>
-      <span>{{ task.title }}</span>
+  <div class="relative h-auto" tabindex="0"
+       @blur="focused = false"
+       @click="accordionVisible = !accordionVisible" @focus="focused = true">
+    <DraggableDragHandle class="pr-2 absolute -left-6 top-6" />
+    <div class="accordion min-h-[70px]  cursor-pointer">
+      <p class="accordion-name absolute pt-6 w-full h-[70px] text-center text-black font-semibold hover:text-blue-400 transition duration-400 ">(Not specified)</p>
+      <div :class="{'accordion-show':accordionVisible === true}" class="accordion-content pt-16 bg-gray-100">
+
+          {{ item.data.repeat(20) }}
+
+      </div>
     </div>
-  </template>
+  </div>
+</template>
 
 <style scoped>
+.accordion-content {
+  -webkit-transition: max-height .7s;
+  -moz-transition: max-height .7s;
+  -ms-transition: max-height .7s;
+  -o-transition: max-height .7s;
+  transition: max-height .7s ease-in-out;
 
-.drag-item:hover .drag-handle{
-
-}
-.sortable-drag .drag-item {
-
-}
-.sortable-ghost .drag-item {
-  position: relative;
-}
-.sortable-ghost .drag-item::after {
-  /*content: "";*/
-  /*@apply absolute top-0 bottom-0 left-0 right-0 bg-gray-50 border-0 rounded;*/
+  overflow: hidden;
+  max-height: 0;
 }
 
-.drag-item:focus, .drag-item:focus-visible {
-  /*@apply outline-gray-400 !important;*/
-  /*outline: gray auto 1px;*/
+.accordion-show {
+  max-height: 800px;
+  height: auto;
 }
+
+
 
 </style>

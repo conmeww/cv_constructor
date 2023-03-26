@@ -19,13 +19,13 @@ const a = onKeyStroke("Backspace", (e) => {
 <template>
   <div class="relative h-auto" tabindex="0"
        @blur="focused = false"
-       @click="accordionVisible = !accordionVisible" @focus="focused = true">
-    <DraggableDragHandle class="pr-2 absolute -left-6 top-6" />
+      @focus="focused = true,accordionVisible = true">
+    <DraggableDragHandle class="pr-2 absolute -left-6 top-6"/>
     <div class="accordion min-h-[70px]  cursor-pointer">
       <p class="accordion-name absolute pt-6 w-full h-[70px] text-center text-black font-semibold hover:text-blue-400 transition duration-400 ">(Not specified)</p>
       <div :class="{'accordion-show':accordionVisible === true}" class="accordion-content pt-16 bg-gray-100">
 
-          {{ item.data.repeat(20) }}
+        <FormEducation />
 
       </div>
     </div>

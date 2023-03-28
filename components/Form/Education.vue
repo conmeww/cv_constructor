@@ -32,6 +32,7 @@
 
     </div>
   </div>
+
   <!--  <div class="flex w-full">-->
   <!--    <div class="columns-2 flex items-end">-->
   <!--      <div class="w-full">-->

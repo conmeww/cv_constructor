@@ -24,7 +24,7 @@ withDefaults(defineProps<{
       </div>
     </div>
     <textarea :placeholder="placeholder"
-              class="resize-y rounded-am  w-full px-4  h-10 bg-gray-50 appearance-none border-b-2  border-transparent  focus:outline-none focus:bg-white focus:border-blue-400 focus:border-b-2"
+              class="resize-y rounded-am  w-full px-4 pt-2 h-10 bg-gray-50 appearance-none border-b-2  border-transparent  focus:outline-none focus:bg-white focus:border-blue-400 focus:border-b-2"
     ></textarea>
   </div>
 </template>

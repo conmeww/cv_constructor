@@ -1,8 +1,6 @@
 <template>
-  <div class="border-b border-gray-900/10 pb-12 w-[500px]">
+  <div class="border-b border-gray-900/10 pb-12 w-full">
     <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
-
-
     <div class="mt-10 grid grid-cols-2 gap-3">
       <div>
         <UiMainInput label="School" placeholder="School"/>
@@ -11,7 +9,6 @@
       <div>
         <UiMainInput label="Degree" placeholder="Degree"/>
       </div>
-
       <div class="flex gap-3 items-end">
         <div>
           <UiDatePicker label="Start & End date"/>
@@ -19,8 +16,6 @@
         <div>
           <UiDatePicker/>
         </div>
-
-
       </div>
       <div>
         <UiMainInput label="School" placeholder="School"/>
@@ -28,8 +23,6 @@
       <div class="col-span-full">
         <UiMainTextarea class="h-32" label="School" placeholder="School"/>
       </div>
-
-
     </div>
   </div>
 

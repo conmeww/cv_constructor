@@ -2,8 +2,7 @@
 
 <template>
   <div class="ml-9">
-
-    <DraggableContainer/>
+    <SectionPersonalDetails sectionTitle="Personal Details"/>
   </div>
 
 </template>

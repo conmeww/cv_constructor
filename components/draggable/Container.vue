@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import {reactive} from 'vue'
+import {reactive,ref } from 'vue'
 import {Container, Draggable} from 'vue3-smooth-dnd'
 import {DropResult} from 'smooth-dnd'
 import {nanoid} from "nanoid";
 import type {SampleItem} from '../../types/index';
-import { ref } from 'vue'
+
 import { TransitionRoot } from '@headlessui/vue'
 
 type SampleItemList = Array<SampleItem>
@@ -47,7 +47,6 @@ defineExpose({
   items,
 })
 </script>
-
 <template>
   <div>
     <Container class="h-auto" :drop-placeholder="{ className:

@@ -1,6 +1,6 @@
-# Nuxt Tailwind Template
+# Nuxt SPA
 
-I created this template starter repo so I don't have to install Tailwind anymore :D
+CV Builder
 
 **Includes**
 - Nuxt v3.3

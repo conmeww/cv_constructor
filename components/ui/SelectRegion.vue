@@ -1,7 +1,8 @@
 <template>
   <div class="w-full">
     <label :label="label" class="block w-full pb-1 text-sm font-medium text-gray-500 transition-all
-     duration-75 ease-in-out group-focus-within:text-blue-400 capitalize" for="4">Country</label>
+     duration-75 ease-in-out group-focus-within:text-blue-custom
+      capitalize" for="4">Country</label>
     <Combobox v-model="selected">
       <div class="relative mt-1">
         <div
@@ -10,7 +11,7 @@
 
           <ComboboxInput
               :displayValue="(person) => person.name"
-              class="w-full px-4  h-10 bg-gray-50 appearance-none border-b-2  border-transparent  focus:outline-none focus:bg-white focus:border-blue-400 focus:border-b-2"
+              class="w-full px-4  h-10 bg-gray-50 appearance-none border-b-2  border-transparent  focus:outline-none focus:bg-white focus:border-blue-custom focus:border-b-2"
               @change="query = $event.target.value"
           />
           <ComboboxButton
@@ -47,7 +48,7 @@
             >
               <li
                   :class="{
-                  'bg-blue-400 text-white': active,
+                  'bg-blue-custom text-white': active,
                   'text-gray-900': !active,
                 }"
                   class="relative cursor-default select-none py-2 pl-10 pr-4"

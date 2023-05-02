@@ -1,6 +1,6 @@
 <template>
   <label :label="label" class="block text-sm font-medium text-gray-500 transition-all
-     duration-75 ease-in-out group-focus-within:text-blue-400 capitalize" >{{ label }}</label>
+     duration-75 ease-in-out group-focus-within:text-blue-custom capitalize" >{{ label }}</label>
   <VueDatePicker auto-apply v-model="month" calendar-class-name="dp-custom-menu" locale="ru" month-picker/>
 </template>
 <script lang="ts" setup>
@@ -75,10 +75,11 @@ const month = ref({
 .dp__input {
   border-bottom: 2px solid transparent;
   border-radius: 0;
+  background-color: #f3f4f6 !important;
 }
 
 .dp__input_focus {
-  background-color: #FFFFFF !important;
+  background-color: #f3f4f6 !important;
   border-bottom: 2px solid var(--color-main) !important;
 }
 

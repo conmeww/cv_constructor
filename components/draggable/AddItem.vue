@@ -1,39 +1,37 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+import {nanoid} from "nanoid";import {reactive,ref } from 'vue'
+import type {Task} from '../../types/index';
+import {Container, Draggable} from "vue3-smooth-dnd";
+import {PlusCircleIcon} from '@heroicons/vue/24/solid'
+const emit = defineEmits<{ (e: "add", payload: Task): void }>()
+const props = defineProps<{
+  addTitle: string,
 
-import type { Task } from '../../types/index';
-
-const emit = defineEmits<{(e: "add", payload: Task): void}>()
-
+}>()
 const focused = ref(false)
 const data = ref("")
 
 function createTask(e: Event) {
-  if (data.value.trim()) {
-    e.preventDefault()
-    emit("add", {
-     data:data.value.trim(),
-      createdAt: new Date(),
-      id:  Math.floor(Math.random() *12222222222224)
-    } as Task)
-  }
+
+  e.preventDefault()
+  emit("add", {
+    data: data.value.trim(),
+    createdAt: new Date(),
+    id:  nanoid(),
+
+  } as Task)
+
   data.value = ""
 }
+
+
 </script>
 
 <template>
-  <div>
-    <textarea
-        v-model="data"
-        @keydown.tab="createTask"
-        @keyup.enter="createTask"
-        class="focus:bg-white overflow-hidden focus:shadow resize-none rounded w-full border-none bg-transparent p-2 cursor-pointer"
-        :class="{
-        'h-7': !focused,
-        'h-20': focused,
-      }"
-        style="outline: none !important; background: red"
-        @focus="focused = true"
-        @blur="focused = false"
-        :placeholder="!focused ? '+ Add A Card' : 'Enter a title for this card'"/>
+
+  <div class="bg-transparent duration-300 hover:bg-blue-50 cursor-pointer flex pl-6 p-3 justify-start items-center" @click="createTask">
+    <PlusCircleIcon aria-hidden="true" class="h-7 w-7 fill-blue-custom font-bold mr-2"/>
+    <button  class="text-blue-custom font-bold ">{{ addTitle }}</button>
+
   </div>
 </template>

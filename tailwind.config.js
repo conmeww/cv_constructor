@@ -1,4 +1,5 @@
  //@type {import('tailwindcss').Config}
+
 module.exports = {
   content: [
     './components/**/*.{js,vue,ts}',
@@ -10,7 +11,12 @@ module.exports = {
     "./node_modules/tw-elements/dist/js/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'blue-custom': '#1a91f0',
+
+      }
+    }
   },
   plugins: [require("tw-elements/dist/plugin")]
 };

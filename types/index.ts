@@ -19,3 +19,11 @@ export interface SampleItem {
 export interface SelectOption {
     data: string
 }
+export interface EducationForm {
+    school: string,
+    degree:string,
+    startDate:string,
+    endDate:string,
+    city:string,
+    currentlyStudying:Boolean
+}

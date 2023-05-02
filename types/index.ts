@@ -16,3 +16,6 @@ export interface SampleItem {
     id: ID;
     data: string
 }
+export interface SelectOption {
+    data: string
+}

@@ -1,3 +1,7 @@
+<template>
+  <UiSelectBasic :items="items"/>
+</template>
+
 <script lang="ts" setup>
 import { SelectOption} from "~/types";
 type SelectOptions = Array<SelectOption>
@@ -9,12 +13,3 @@ const items = [
 ] as SelectOptions
 
 </script>
-<template>
-  <div class="ml-9 w-[900px]">
-<!--     <SectionPersonalDetails sectionTitle="Personal Details"/>-->
- <SectionEducation />
-  </div>
-
-
-</template>
-<style scoped></style>

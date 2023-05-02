@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
+const props = defineProps<{
+  placeholder: String
+}>()
 
-const title = ref('My title')
+let title = props.placeholder
 const titleElement = ref(null)
 
 function validate(event : Event) {
   (event.target as HTMLInputElement).blur()
-  title.value = titleElement.value.innerText.trim()
+  title = titleElement.value.innerText.trim()
 }
 
 defineExpose({ titleElement })

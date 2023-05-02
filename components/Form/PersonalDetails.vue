@@ -34,28 +34,14 @@ let accordionVisible = ref(false)
       <div :class="{'accordion-show':accordionVisible === true}" class="accordion-content ">
 
         <div class="grid grid-cols-2 gap-6 mt-6">
-          <div class="col-span-full">
-            <UiMainInput label="Wanted Job Title" placeholder="e.g. Teacher" showTooltip="true"
-                         tooltipText="Tooltip text"/>
+          <div class="col-span-1">
+            <UiMainInput label="Date Of Birth" placeholder="Date Of Birth"
+                         />
           </div>
-          <div>
-            <UiMainInput label="First Name" placeholder="First Name"/>
+          <div class="col-span-1">
+            <UiMainInput label="Driving License" placeholder="Driving License"/>
           </div>
-          <div>
-            <UiMainInput label="Last Name" placeholder="Last Name"/>
-          </div>
-          <div>
-            <UiMainInput label="Email" placeholder="Email"/>
-          </div>
-          <div>
-            <UiMainInput label="Phone" placeholder="Phone"/>
-          </div>
-          <div>
-            <UiMainInput label="Country" placeholder="Country"/>
-          </div>
-          <div>
-            <UiMainInput label="City" placeholder="City"/>
-          </div>
+    
         </div>
 
       </div>
@@ -63,7 +49,7 @@ let accordionVisible = ref(false)
          @click="accordionVisible = !accordionVisible">
         {{accordionVisible ? 'Hide' : 'Show'}} additional detail
 
-        <ChevronDownIcon aria-hidden="true" class="inline h-7 w-7 fill-blue-400"/>
+        <ChevronDownIcon aria-hidden="true" class="inline h-7 w-7 fill-blue-400" />
 
       </p>
     </div>

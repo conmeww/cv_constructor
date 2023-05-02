@@ -15,9 +15,12 @@ const items = reactive({
     {id: nanoid(), data: 'Spirited Away'},
     {id: nanoid(), data: 'My Neighbor Totoro'},
     {id: nanoid(), data: "Howl's Moving Castle"},
+
   ] as SampleItemList,
 })
-
+const props = defineProps<{
+  formEducation : string
+}>()
 const onDrop = (dropResult: DropResult) => {
   items.value = applyDrag(items.value, dropResult)
 }
@@ -57,8 +60,8 @@ defineExpose({
                drop-class="transition duration-100 ease-in  z-50"
                orientation="vertical" @drop="onDrop">
       <Draggable v-for="(item, i) in items.value" :key="item.id"
-                 class="drag-item   rounded-sm   relative  flex py-2 h-auto">
-        <DraggableItem  :item="item" class="bg-white transition  border rounded-sm  duration-400 ease-in min-h-[70px]"
+                 class="drag-item  my-2 rounded-sm   relative  flex  h-auto">
+        <DraggableItem :formEducation="formEducation" :item="item" class="bg-white transition  border rounded-sm  duration-400 ease-in min-h-[70px]"
                        @delete="items.value = items.value.filter(item => item.id !== $event)"/>
       </Draggable>
       <div>
@@ -66,6 +69,7 @@ defineExpose({
     </Container>
     <DraggableAddItem @add="items.value.push($event)"/>
   </div>
+
 </template>
 
 <style scoped>

@@ -1,25 +1,31 @@
 <template>
   <div class="border-b border-gray-900/10 pb-12 w-full">
-    <h2 class="text-base font-semibold leading-7 text-gray-900">Education</h2>
+    <h2 class="text-base font-semibold leading-7 text-gray-900">Employment History</h2>
     <div class="mt-7 grid grid-cols-2 gap-3">
-      <div>
-        <UiMainInput label="School" placeholder="School"/>
+      <div class="col-span-1">
+        <UiMainInput label="Job Title" placeholder="Job Title"/>
       </div>
-      <div>
-        <UiMainInput label="Degree" placeholder="Degree"/>
+      <div class="col-span-1">
+        <UiMainInput label="Employer" placeholder="Employer"/>
       </div>
-      <div class="flex gap-3 items-end">
-        <div>
+      <div class="flex gap-3 items-end relative col-span-1">
+        <div class="col-span-1">
           <UiDatePicker label="Start & End date"/>
         </div>
         <div>
           <UiDatePicker/>
         </div>
       </div>
-      <div>
+      <div class="col-span-1">
         <UiMainInput label="City" placeholder="City"/>
       </div>
-   <UiSwitchToggle label="Currently studying" />
+      <div class="col-span-2">
+        <UiSwitchToggle label="Currently work here"/>
+      </div>
+
+      <div class="col-span-2">
+        <UiMainTextarea label="Description"/>
+      </div>
     </div>
   </div>
 

@@ -45,11 +45,11 @@ let accordionVisible = ref(false)
         </div>
 
       </div>
-      <p class="w-full mt-6 h-[70px] text-left font-semibold text-blue-400 transition duration-400 "
+      <p class="w-full mt-6 h-[70px] text-left font-semibold text-blue-custom transition duration-400 "
          @click="accordionVisible = !accordionVisible">
         {{accordionVisible ? 'Hide' : 'Show'}} additional detail
 
-        <ChevronDownIcon aria-hidden="true" class="inline h-7 w-7 fill-blue-400" />
+        <ChevronDownIcon aria-hidden="true" class="inline h-7 w-7 text-blue-custom" />
 
       </p>
     </div>

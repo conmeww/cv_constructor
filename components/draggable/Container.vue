@@ -5,21 +5,17 @@ import {DropResult} from 'smooth-dnd'
 import {nanoid} from "nanoid";
 import type {SampleItem} from '../../types/index';
 
-import { TransitionRoot } from '@headlessui/vue'
-
 type SampleItemList = Array<SampleItem>
 let focused = ref(false)
 const items = reactive({
   value: [
-    {id: nanoid(), data: 'Princess Mononoke'},
-    {id: nanoid(), data: 'Spirited Away'},
-    {id: nanoid(), data: 'My Neighbor Totoro'},
-    {id: nanoid(), data: "Howl's Moving Castle"},
-
+    {id: nanoid(), data: ''},
   ] as SampleItemList,
 })
 const props = defineProps<{
-  formEducation : string
+  formEducation : string,
+  addTitle: string,
+
 }>()
 const onDrop = (dropResult: DropResult) => {
   items.value = applyDrag(items.value, dropResult)
@@ -48,28 +44,28 @@ defineExpose({
   onDrop,
   applyDrag,
   items,
+
 })
 </script>
 <template>
   <div>
     <Container class="h-auto" :drop-placeholder="{ className:
             `bg-gray-300 bg-opacity-20 rounded-sm`,
-          animationDuration: '200',
+          animationDuration: '100',
           showOnTop: true }" drag-class="border border-primary-hover
-            transition duration-100 ease-in z-50 opacity-90 cursor-grabbing" drag-handle-selector=".handle"
+            transition duration-100 ease-in z-50 opacity-80 shadow-md cursor-grabbing" drag-handle-selector=".handle"
                drop-class="transition duration-100 ease-in  z-50"
                orientation="vertical" @drop="onDrop">
       <Draggable v-for="(item, i) in items.value" :key="item.id"
-                 class="drag-item  my-2 rounded-sm   relative  flex  h-auto">
-        <DraggableItem :formEducation="formEducation" :item="item" class="bg-white transition  border rounded-sm  duration-400 ease-in min-h-[70px]"
+                 class="drag-item  py-2 rounded-sm   relative  flex  h-auto">
+        <DraggableItem  :formEducation="formEducation" :item="item" class="bg-white transition border-gray-100 border rounded-sm  duration-400 ease-in min-h-[70px]"
                        @delete="items.value = items.value.filter(item => item.id !== $event)"/>
       </Draggable>
       <div>
       </div>
     </Container>
-    <DraggableAddItem @add="items.value.push($event)"/>
+    <DraggableAddItem @add="items.value.push($event)" :addTitle="addTitle" />
   </div>
-
 </template>
 
 <style scoped>
@@ -77,7 +73,9 @@ defineExpose({
   overflow: visible;
 }
 
-
+.animated {
+  pointer-events: none;
+}
 .ease-custom {
   transition-timing-function: cubic-bezier(.61, -0.53, .43, 1.43);
 }

@@ -1,9 +1,9 @@
 <template>
-  <div class="border-b border-gray-900/10 pb-12 w-full">
+  <div class=" pb-12 w-full">
     <h2 class="text-base font-semibold leading-7 text-gray-900">Education</h2>
     <div class="mt-7 grid grid-cols-2 gap-3">
       <div>
-        <UiMainInput label="School" placeholder="School"/>
+        <UiMainInput label="School" placeholder="School" @update="getData" v-model="form.value.city"/>
       </div>
       <div>
         <UiMainInput label="Degree" placeholder="Degree"/>
@@ -22,35 +22,22 @@
    <UiSwitchToggle label="Currently studying" />
     </div>
   </div>
-
-  <!--  <div class="flex w-full">-->
-  <!--    <div class="columns-2 flex items-end">-->
-  <!--      <div class="w-full">-->
-  <!--        <UiMainInput label="School" placeholder="School"/>-->
-  <!--      </div>-->
-  <!--      <div class="w-full">-->
-  <!--        <UiMainInput label="Degree" placeholder="Degree"/>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <div class="columns-2 flex items-end">-->
-  <!--      <div class="columns-2 flex items-end gap-3">-->
-  <!--        <div class="w-full ">-->
-  <!--          <UiDatePicker label="Start & End Date"/>-->
-  <!--        </div>-->
-  <!--        <div class="w-full">-->
-  <!--          <UiDatePicker/>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="w-full">-->
-  <!--        <UiSelectRegion label="Region" placeholder="Region"/>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-
-  <!--  <div class="columns-1">-->
-  <!--    <div class="w-full">-->
-  <!--      <UiMainTextarea label="Description"/>-->
-  <!--    </div>-->
-  <!--  </div>-->
-
 </template>
+<script lang="ts" setup>
+import {ref,reactive} from 'vue';
+import {EducationForm} from "~/types";
+import {nanoid} from "nanoid";
+
+
+
+let form = reactive({
+  value: [
+    {city: ''},
+  ] as EducationForm,
+})
+const getData = (e) =>{
+  console.log(form.value)
+}
+
+
+</script>

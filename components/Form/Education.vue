@@ -3,7 +3,9 @@
     <h2 class="text-base font-semibold leading-7 text-gray-900">Education</h2>
     <div class="mt-7 grid grid-cols-2 gap-3">
       <div>
-        <UiMainInput label="School" placeholder="School" @update="getData" v-model="form.value.city"/>
+        <UiMainInput v-model="email" label="School" placeholder="School"
+                     type="text"
+                     @input="onInput"/>
       </div>
       <div>
         <UiMainInput label="Degree" placeholder="Degree"/>
@@ -19,25 +21,40 @@
       <div>
         <UiMainInput label="City" placeholder="City"/>
       </div>
-   <UiSwitchToggle label="Currently studying" />
+      <UiSwitchToggle label="Currently studying"/>
     </div>
   </div>
+  <button @click="test">dcfvgbhmk</button>
 </template>
 <script lang="ts" setup>
-import {ref,reactive} from 'vue';
-import {EducationForm} from "~/types";
+import {ref, reactive, onMounted} from 'vue';
+import {EducationForm, generateFakeData, Item, SampleItem, Task} from "~/types";
+import {useFormStore, useMainStore} from "~/store";
 import {nanoid} from "nanoid";
 
+const email = ref('')
+// output value key by key
+const onInput = (e: { target: { value: string } }) => {
+  email.value = e.target.value;
+};
 
 
-let form = reactive({
+type EducationFormsList = Array<EducationForm>
+
+const items = reactive({
   value: [
-    {city: ''},
-  ] as EducationForm,
+    {id: nanoid(), school: ''},
+  ] as EducationFormsList,
 })
-const getData = (e) =>{
-  console.log(form.value)
-}
 
+function test(e: Event) {
+
+  e.preventDefault()
+  items.value.push({
+    id: nanoid(),
+    school: email.value
+  })
+  console.log(items.value)
+}
 
 </script>

@@ -11,15 +11,12 @@ withDefaults(defineProps<{
   // defaults
 })
 
-const formStore = useFormStore();
-const form  = ref<EducationForm[]>([]);
-const formName = ref('')
 </script>
 <template>
   <div class="w-full">
     <h2 class="mb-3">{{ sectionTitle }}</h2>
-    <p class="text-gray-400 text-base mb-5">A varied education on your resume sums up the value that your learnings and background will bring to job.</p>
-    <DraggableContainer :formType="FormEducation"   addTitle="Add one more education"/>
+    <p class="text-gray-400 text-base mb-5">Choose 5 important skills that show you fit the position. Make sure they match the key skills mentioned in the job listing (especially when applying via an online system).</p>
+
   </div>
 
 </template>

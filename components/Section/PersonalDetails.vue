@@ -9,7 +9,6 @@ withDefaults(defineProps<{
   <div class="w-full">
     <h2 class="mb-5">{{ sectionTitle }}</h2>
     <FormPersonalDetails/>
-    <DraggableContainer />
   </div>
 </template>
 <style scoped>

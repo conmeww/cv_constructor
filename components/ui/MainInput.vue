@@ -10,11 +10,11 @@ onMounted(() => {
 withDefaults(defineProps<{
   label?: string
   placeholder?: string,
-  showTooltip: Boolean,
+  showTooltip?: Boolean,
   tooltipText?: string,
   modelValue: string;
-  name: string;
-  type: string;
+  name?: string;
+  type?: string;
 }>(), {
   // defaults
 })

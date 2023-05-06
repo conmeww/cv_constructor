@@ -1,26 +1,82 @@
-import {EducationForm, generateFakeData, Item} from "../types/index";
-import { defineStore } from "pinia";
+import {EducationForm, generateFakeData, Item, DraggableItem, FormType, ID} from "../types/index";
+import {defineStore} from "pinia";
+import {FormEducation} from "#components";
+import {nanoid} from "nanoid";
 
 export type RootState = {
     items: Item[];
 };
 export type FormState = {
     items: EducationForm[];
+    type: FormType,
+    id: string
 };
 export const useFormStore = defineStore({
     id: "formStore",
     state: () =>
         ({
-            forms: [],
+            items: [],
+            id: '',
+            type: ''
         } as FormState),
-
     actions: {
-        addEducation(item: EducationForm) {
-           // if (!item) return;
-            console.log(item)
-           // this.items.push(item);
+        addEducationForm(item: EducationForm) {
+            if (!item) return;
+            this.items.push(item);
         },
+        addForm(type: string, id: string) {
+            switch (type) {
+                case 'education' :
+                    this.addEducationForm({
+                        id: nanoid(),
+                        parent: id,
+                        sort: 1,
+                        type: '',
+                        school: '',
+                        degree: '',
+                        startDate: '',
+                        endDate: '',
+                        city: '',
+                        currentlyStudying: false
+                    })
 
+
+            }
+        },
+        updateForm(item: EducationForm) {
+            let i = this.items.findIndex((item) => item.id === item.id);
+            this.items[i] = item
+
+        }
+    },
+});
+export type DraggableState = {
+    items: DraggableItem[];
+};
+export const useDraggableStore = defineStore({
+    id: "draggableStore",
+    state: () =>
+        ({
+            items: [],
+        } as DraggableState),
+    actions: {
+        updateOrder(items: DraggableItem[]) {
+            this.items = items
+        },
+        addItem(item: DraggableItem) {
+            if (!item) return;
+            this.items.push(item);
+        },
+        deleteItem(id: string) {
+            console.log(id)
+            const index = this.findIndexById(id);
+            if (index === -1) return;
+            this.items.splice(index, 1);
+            this.updateOrder(this.items)
+        },
+        findIndexById(id: string) {
+            return this.items.findIndex((item) => item.id === id);
+        },
     },
 });
 export const useMainStore = defineStore({
@@ -32,8 +88,9 @@ export const useMainStore = defineStore({
 
     actions: {
         createNewItem(item: Item) {
-            if (!item) return;
-            this.items.push(item);
+
+            //  if (!item) return;
+            // this.items.push(item);
         },
 
         updateItem(id: string, payload: Item) {

@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-import {SampleItem, ID} from '../../types/index';
+import { ID, DraggableItem} from '../../types/index';
 import {onKeyStroke} from "@vueuse/core";
 import {ref} from 'vue'
 import {TransitionRoot} from '@headlessui/vue'
 import {TrashIcon, ChevronDownIcon} from '@heroicons/vue/24/outline'
 
 const props = defineProps<{
-  item: SampleItem,
-  formEducation: string,
+  item: DraggableItem,
+  formType: string,
 
 }>()
 const emit = defineEmits<{
   (e: "delete", payload: ID): void
 }>()
-const activeInput = ref(false)
+
 const focused = ref(false)
 let accordionVisible = ref(false)
 const a = onKeyStroke("Backspace", (e) => {
@@ -44,7 +44,7 @@ const a = onKeyStroke("Backspace", (e) => {
         <UiTooltip tooltipContent="Delete" tooltipId="tooltip-delete"/>
         <div :class="{'opacity-0 invisible duration-100':accordionVisible === false}"
              class="duration-600 transition-all delay-300">
-          <component :is="formEducation"></component>
+          <component :is="formType"></component>
         </div>
 
       </div>

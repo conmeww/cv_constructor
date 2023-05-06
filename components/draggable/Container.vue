@@ -3,26 +3,27 @@ import {reactive,ref } from 'vue'
 import {Container, Draggable} from 'vue3-smooth-dnd'
 import {DropResult} from 'smooth-dnd'
 import {nanoid} from "nanoid";
-import type {SampleItem} from '../../types/index';
-
-type SampleItemList = Array<SampleItem>
+import type {DraggableItem,EducationForm} from '../../types/index';
+import {useDraggableStore} from "~/store";
+const draggableStore = useDraggableStore();
+type DraggableItemList = Array<DraggableItem>
 let focused = ref(false)
+
 const items = reactive({
-  value: [
-    {id: nanoid(), data: ''},
-  ] as SampleItemList,
+  value: [] as DraggableItemList,
 })
 const props = defineProps<{
-  formEducation : string,
+  formType : string,
   addTitle: string,
-
 }>()
+
+
 const onDrop = (dropResult: DropResult) => {
   items.value = applyDrag(items.value, dropResult)
 }
 
-const applyDrag = (arr: SampleItemList, dragResult: DropResult) => {
-  console.log('applyDrag', dragResult)
+const applyDrag = (arr: DraggableItemList, dragResult: DropResult) => {
+
   const {removedIndex, addedIndex, payload} = dragResult
 
   if (removedIndex === null && addedIndex === null) return arr
@@ -35,6 +36,7 @@ const applyDrag = (arr: SampleItemList, dragResult: DropResult) => {
   if (addedIndex !== null) {
     result.splice(addedIndex, 0, itemToAdd)
   }
+  draggableStore.updateOrder(result)
   return result
 }
 
@@ -44,7 +46,6 @@ defineExpose({
   onDrop,
   applyDrag,
   items,
-
 })
 </script>
 <template>
@@ -58,13 +59,13 @@ defineExpose({
                orientation="vertical" @drop="onDrop">
       <Draggable v-for="(item, i) in items.value" :key="item.id"
                  class="drag-item  py-2 rounded-sm   relative  flex  h-auto">
-        <DraggableItem  :formEducation="formEducation" :item="item" class="bg-white transition border-gray-100 border rounded-sm  duration-400 ease-in min-h-[70px]"
-                       @delete="items.value = items.value.filter(item => item.id !== $event)"/>
+        <DraggableItem  :formType="formType" :item="item" class="bg-white transition border-gray-100 border rounded-sm  duration-400 ease-in min-h-[70px]"
+                       @delete="draggableStore.deleteItem($event), items.value = items.value.filter(item => item.id !== $event)"/>
       </Draggable>
       <div>
       </div>
     </Container>
-    <DraggableAddItem @add="items.value.push($event)" :addTitle="addTitle" />
+    <DraggableAddItem @add="draggableStore.addItem($event), items.value.push($event)" :addTitle="addTitle" />
   </div>
 </template>
 

@@ -5,7 +5,7 @@ import {ChevronDownIcon} from "@heroicons/vue/20/solid";
 let accordionVisible = ref(false)
 </script>
 <template>
-  <div class="border-b border-gray-900/10 pb-12 w-full">
+  <div class="w-full">
     <div class=" grid grid-cols-2 gap-6">
       <div class="col-span-full">
         <UiMainInput label="Wanted Job Title" placeholder="e.g. Teacher" showTooltip="true" tooltipText="Tooltip text"/>

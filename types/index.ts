@@ -75,3 +75,8 @@ export function generateFakeData(): Item {
         createdAt: new Date(),
     };
 }
+// Skills
+export interface Skill {
+    id: ID,
+    name:string
+}

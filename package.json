@@ -19,7 +19,7 @@
     "@nuxtjs/tailwindcss": "^6.6.4",
     "@pinia/nuxt": "^0.4.9",
     "@vuepic/vue-datepicker": "^4.2.2",
-    "@vueuse/core": "^9.13.0",
+    "@vueuse/core": "^10.1.2",
     "flowbite": "^1.6.5",
     "nanoid": "^4.0.1",
     "pinia": "^2.0.35",

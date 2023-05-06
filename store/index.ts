@@ -1,4 +1,4 @@
-import {EducationForm, generateFakeData, Item, DraggableItem, FormType, ID} from "../types/index";
+import {EducationForm, generateFakeData, Item, DraggableItem, FormType, Skill} from "../types/index";
 import {defineStore} from "pinia";
 import {FormEducation} from "#components";
 import {nanoid} from "nanoid";
@@ -9,7 +9,8 @@ export type RootState = {
 export type FormState = {
     items: EducationForm[];
     type: FormType,
-    id: string
+    id: string,
+    skills: Skill[]
 };
 export const useFormStore = defineStore({
     id: "formStore",
@@ -17,7 +18,8 @@ export const useFormStore = defineStore({
         ({
             items: [],
             id: '',
-            type: ''
+            type: '',
+            skills: []
         } as FormState),
     actions: {
         addEducationForm(item: EducationForm) {
@@ -46,8 +48,26 @@ export const useFormStore = defineStore({
         updateForm(item: EducationForm) {
             let i = this.items.findIndex((item) => item.id === item.id);
             this.items[i] = item
+        },
+        addSkill(skill: Skill) {
 
-        }
+            this.skills.push(skill);
+        },
+        checkExistingSkill(val) {
+            this.skills.forEach(skill => {
+                if (val.id !== skill.id) {
+                   return true
+                }
+                console.log(this)
+
+            })
+
+        },
+        deleteSkill(skill: Skill) {
+            this.skills = this.skills.filter(item => item !== skill)
+            return this.skills
+        },
+
     },
 });
 export type DraggableState = {

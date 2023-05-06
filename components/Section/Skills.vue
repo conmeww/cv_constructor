@@ -16,7 +16,7 @@ withDefaults(defineProps<{
   <div class="w-full">
     <h2 class="mb-3">{{ sectionTitle }}</h2>
     <p class="text-gray-400 text-base mb-5">Choose 5 important skills that show you fit the position. Make sure they match the key skills mentioned in the job listing (especially when applying via an online system).</p>
-
+<Test />
   </div>
 
 </template>

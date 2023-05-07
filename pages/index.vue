@@ -9,8 +9,6 @@
     <div class="h-full col-span-1">
       <SectionPreviewPDF/>
     </div>
-
-
   </div>
 </template>
 <style scoped></style>

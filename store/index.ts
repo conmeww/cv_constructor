@@ -50,18 +50,7 @@ export const useFormStore = defineStore({
             this.items[i] = item
         },
         addSkill(skill: Skill) {
-
             this.skills.push(skill);
-        },
-        checkExistingSkill(val) {
-            this.skills.forEach(skill => {
-                if (val.id !== skill.id) {
-                   return true
-                }
-                console.log(this)
-
-            })
-
         },
         deleteSkill(skill: Skill) {
             this.skills = this.skills.filter(item => item !== skill)

@@ -23,9 +23,12 @@
     "flowbite": "^1.6.5",
     "nanoid": "^4.0.1",
     "pinia": "^2.0.35",
+    "sass": "^1.62.1",
     "smooth-dnd": "^0.12.1",
     "tw-elements": "^1.0.0-beta1",
     "typescript": "^5.0.2",
+    "vue3-html2pdf": "^1.1.2",
+    "vue3-pdfmake": "^2.2.0",
     "vue3-smooth-dnd": "^0.0.4",
     "vuedraggable": "^4.1.0"
   }

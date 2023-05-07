@@ -8,7 +8,6 @@ import {TrashIcon, ChevronDownIcon} from '@heroicons/vue/24/outline'
 const props = defineProps<{
   item: DraggableItem,
   formType: string,
-
 }>()
 const emit = defineEmits<{
   (e: "delete", payload: ID): void

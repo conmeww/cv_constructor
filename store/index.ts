@@ -1,4 +1,4 @@
-import {EducationForm, generateFakeData, Item, DraggableItem, FormType, Skill} from "../types/index";
+import {EducationForm, generateFakeData, Item, DraggableItem, FormType, Skill, BioForm} from "../types/index";
 import {defineStore} from "pinia";
 import {FormEducation} from "#components";
 import {nanoid} from "nanoid";
@@ -7,8 +7,9 @@ export type RootState = {
     items: Item[];
 };
 export type FormState = {
-    items: EducationForm[];
-    type: FormType,
+    itemsEdu: EducationForm[]
+    itemsBio: BioForm[]
+    type: FormType
     id: string,
     skills: Skill[]
 };
@@ -16,7 +17,8 @@ export const useFormStore = defineStore({
     id: "formStore",
     state: () =>
         ({
-            items: [],
+            itemsEdu: [],
+            itemsBio: [],
             id: '',
             type: '',
             skills: []
@@ -24,7 +26,10 @@ export const useFormStore = defineStore({
     actions: {
         addEducationForm(item: EducationForm) {
             if (!item) return;
-            this.items.push(item);
+            this.itemsEdu.push(item);
+        }, addBioForm(item: BioForm) {
+            if (!item) return;
+            this.itemsBio.push(item);
         },
         addForm(type: string, id: string) {
             switch (type) {
@@ -46,8 +51,8 @@ export const useFormStore = defineStore({
             }
         },
         updateForm(item: EducationForm) {
-            let i = this.items.findIndex((item) => item.id === item.id);
-            this.items[i] = item
+            let i = this.itemsEdu.findIndex((item) => item.id === item.id);
+            this.itemsEdu[i] = item
         },
         addSkill(skill: Skill) {
             this.skills.push(skill);

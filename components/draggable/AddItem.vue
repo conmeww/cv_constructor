@@ -22,9 +22,8 @@ function addItem(e: Event) {
   emit("add", {
     id:  parentId,
     data:formStore.addForm('education', parentId),
-    content:formStore.items.filter(item => item.parent === parentId)
+    content:formStore.itemsEdu.filter(item => item.parent === parentId)
   } as DraggableItem)
-
   data.value = ""
 }
 

@@ -1,10 +1,12 @@
 <template>
   <label :label="label" class="block text-sm font-medium text-gray-500 transition-all
      duration-75 ease-in-out group-focus-within:text-blue-custom capitalize" >{{ label }}</label>
-  <VueDatePicker auto-apply v-model="month" calendar-class-name="dp-custom-menu" locale="ru" month-picker/>
+  <VueDatePicker auto-apply  v-model="modelValue"   calendar-class-name="dp-custom-menu" locale="ru" month-picker
+                 @update:model-value="$emit('update:modelValue',modelValue)"
+  />
 </template>
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {defineEmits, ref} from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
@@ -15,12 +17,12 @@ withDefaults(defineProps<{
 }>(), {
   // defaults
 })
-const date = ref();
-const month = ref({
+
+let modelValue = ref({
   month: new Date().getMonth(),
   year: new Date().getFullYear()
 });
-
+defineEmits(["update:modelValue"]);
 </script>
 
 <style>

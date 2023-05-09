@@ -11,76 +11,263 @@ let pdf
 let k = ref()
 
 async function exportPdf() {
+
+  console.log(pdfFonts)
   let docDefinition = {
-
     content: [
-
       {
-        alignment: 'justify',
+        // header
         columns: [
+          {
+            text: 'photo',
+            width: '20%'
+          },
           {
             stack: [
               {
-                text: [
-                  'This line begins a stack of paragraphs. The whole stack uses a ',
-                  {text: 'superMargin', italics: true},
-                  ' style (with margin and fontSize properties).',
-                ]
+                text: 'Chris Candidate',
+                fontSize: 18,
+                bold: true
               },
               {
-                text: ['When you look at the', {
-                  text: ' document definition',
-                  italics: true
-                }, ', you will notice that fontSize is inherited by all paragraphs inside the stack.']
+                text: 'Human Resource Manger',
+                fontSize: 16,
+                bold: true
               },
-              'Margin however is only applied once (to the whole stack).'
             ],
-            width: 100,
-          },
-          {
-            text: 'column 2 efsrdghjklhjgf' +
-                'desadfrgthjkl;kjhygfrdwsdfhkl;',
-            background: 'red'
-          },
-          {
-            text: vall.value,
+            alignment: 'left',
+            width: '*',
 
-          }
+          }, {
+            stack: [
+              {
+                columns: [
+                  {
+                    svg: '<svg width="10" height="10" viewBox="0 0 10 10">  <circle cx="5" cy="5" r="10" stroke="green" stroke-width="4" fill="yellow" /></svg>'
+                  },
+                  {
+                    text: '4759 Sunnydale Lane',
+                    width: '*'
+                  },
+                ],
+                alignment: 'right',
+                columnGap: 0
+              },
+              {
+                columns: [
+                  {
+                    svg: '<svg width="10" height="10" viewBox="0 0 10 10">  <circle cx="5" cy="5" r="10" stroke="green" stroke-width="4" fill="yellow" /></svg>'
+                  },
+                  {
+                    text: '4759 Sunnydale Lane',
+                    width: '*'
+                  },
+                ],
+                alignment: 'right',
+                columnGap: 0
+              },
+              {
+                columns: [
+                  {
+                    svg: '<svg width="10" height="10" viewBox="0 0 10 10">  <circle cx="5" cy="5" r="10" stroke="green" stroke-width="4" fill="yellow" /></svg>'
+                  },
+                  {
+                    text: '4759 Sunnydale Lane',
+                    width: '*'
+                  },
+                ],
+                alignment: 'right',
+                columnGap: 0
+              },
+              {
+                columns: [
+                  {
+                    svg: '<svg width="10" height="10" viewBox="0 0 10 10">  <circle cx="5" cy="5" r="10" stroke="green" stroke-width="4" fill="yellow" /></svg>'
+                  },
+                  {
+                    text: '4759 Sunnydale Lane',
+                    width: '*'
+                  },
+                ],
+                alignment: 'right',
+                columnGap: 0
+              },
+            ],
+            style: 'headerRight',
+            width: '40%',
+            alignment: 'right',
+            fontSize:10,
+            margin: [0, 0, 0, 30],
+          },
+            
+
         ]
       },
+// summary
 
+
+      // experience
       {
         columns: [
           {
-            text: 'Loiveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
+            width: '30%',
+            text: 'Professional Experience'
           },
           {
-            text: 'Lorveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
+            width: '*',
+            text: 'Professional Experience Title',
+            alignment: 'right',
+            stack: [
+
+
+              {
+                text: 'Human Resource',
+                fontSize: 15,
+              },
+              {
+                text: 'Jim\'s Widget Factory, Plano, TX | January 2016 - Present',
+                fontSize: 12,
+                margin: [0, 0, 0, 10]
+              },
+              {
+
+                ul: [
+                  {
+                    text: 'Implement effective company policies to ensure that all practices comply with labor and employment regulations',
+                    margin: [0, 0, 0, 10]
+                  },
+                  {
+                    text: 'Increased employee retention rates by managing workplace satisfaction to an over 90% success rate by creating and maintaining a positive work environment',
+                    margin: [0, 0, 0, 10]
+
+                  },
+                  {
+                    text: '  Develop targeted outreach practices to increase minority recruitment and ensure compliance with affirmative action policies',
+                    margin: [0, 0, 0, 10]
+
+
+                  },
+
+                ],
+                fontSize: 10,
+              },
+              {
+                text: 'Human Resource',
+                fontSize: 15,
+              },
+              {
+                text: 'Jim\'s Widget Factory, Plano, TX | January 2016 - Present',
+                fontSize: 12,
+                margin: [0, 0, 0, 10]
+              },
+              {
+
+                ul: [
+                  {
+                    text: 'Implement effective company policies to ensure that all practices comply with labor and employment regulations',
+                    margin: [0, 0, 0, 10]
+                  },
+                  {
+                    text: 'Increased employee retention rates by managing workplace satisfaction to an over 90% success rate by creating and maintaining a positive work environment',
+                    margin: [0, 0, 0, 10]
+
+                  },
+                  {
+                    text: '  Develop targeted outreach practices to increase minority recruitment and ensure compliance with affirmative action policies',
+                    margin: [0, 0, 0, 10]
+
+
+                  },
+
+                ],
+                fontSize: 10,
+              },
+
+            ],
           },
-          {
-            text: 'Loremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
-          }
+
         ]
       },
-      '\nYou can also specify accurate widths for some (or all columns). Let\'s make the first column and the last one narrow and let the layout engine divide remaining space equally between other star-columns:\n\n',
+      // education
       {
         columns: [
           {
-            width: 90,
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
+            width: '30%',
+            text: 'Professional Experience'
           },
           {
             width: '*',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
+            text: 'Professional Experience Title',
+            alignment: 'right',
+            stack: [
+
+
+              {
+                text: 'Human Resource',
+                fontSize: 15,
+              },
+              {
+                text: 'Jim\'s Widget Factory, Plano, TX | January 2016 - Present',
+                fontSize: 12,
+                margin: [0, 0, 0, 10]
+              },
+              {
+
+                ul: [
+                  {
+                    text: 'Implement effective company policies to ensure that all practices comply with labor and employment regulations',
+                    margin: [0, 0, 0, 10]
+                  },
+                  {
+                    text: 'Increased employee retention rates by managing workplace satisfaction to an over 90% success rate by creating and maintaining a positive work environment',
+                    margin: [0, 0, 0, 10]
+
+                  },
+                  {
+                    text: '  Develop targeted outreach practices to increase minority recruitment and ensure compliance with affirmative action policies',
+                    margin: [0, 0, 0, 10]
+
+
+                  },
+
+                ],
+                fontSize: 10,
+              },
+              {
+                text: 'Human Resource',
+                fontSize: 15,
+              },
+              {
+                text: 'Jim\'s Widget Factory, Plano, TX | January 2016 - Present',
+                fontSize: 12,
+                margin: [0, 0, 0, 10]
+              },
+              {
+
+                ul: [
+                  {
+                    text: 'Implement effective company policies to ensure that all practices comply with labor and employment regulations',
+                    margin: [0, 0, 0, 10]
+                  },
+                  {
+                    text: 'Increased employee retention rates by managing workplace satisfaction to an over 90% success rate by creating and maintaining a positive work environment',
+                    margin: [0, 0, 0, 10]
+
+                  },
+                  {
+                    text: '  Develop targeted outreach practices to increase minority recruitment and ensure compliance with affirmative action policies',
+                    margin: [0, 0, 0, 10]
+
+
+                  },
+
+                ],
+                fontSize: 10,
+              },
+
+            ],
           },
-          {
-            width: '*',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
-          },
-          {
-            width: 90,
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
-          }
+
         ]
       },
       {
@@ -97,7 +284,6 @@ async function exportPdf() {
           }
         ]
       },
-
     ],
     styles: {
       header: {
@@ -107,10 +293,13 @@ async function exportPdf() {
       bigger: {
         fontSize: 15,
         italics: true
-      }
+      },
+      headerRight: {},
     },
     defaultStyle: {
-      columnGap: 20
+
+      columnGap: 10,
+
     }
   };
 

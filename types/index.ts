@@ -15,7 +15,7 @@ export interface Task {
 export interface DraggableItem {
     id: ID;
     data: string,
-    content:string,
+    content: string,
 }
 
 export interface SelectOption {
@@ -25,13 +25,26 @@ export interface SelectOption {
 export interface FormType {
     data: string
 }
+
 // for pinia
+export interface BioForm {
+    id: ID,
+    wantedJob:string,
+    firstName: string,
+    lastName: string,
+    birthDate: string,
+    email: string,
+    phone: number,
+    country:string,
+    city: string,
+    drivingLicense?: Boolean
+}
 
 export interface EducationForm {
     id: ID,
-    sort:number,
-    parent?:string,
-    type?:string,
+    sort: number,
+    parent?: string,
+    type?: string,
     school: string,
     degree: string,
     startDate: string,
@@ -39,17 +52,18 @@ export interface EducationForm {
     city: string,
     currentlyStudying: Boolean
 }
+
 export interface EducationFormList {
     id: ID,
-    sort:number,
-    forms:EducationForm[]
+    sort: number,
+    forms: EducationForm[]
 }
 
 export interface EmploymentHistoryForm {
     id: ID,
-    sort:number,
-    parent?:string,
-    type?:string,
+    sort: number,
+    parent?: string,
+    type?: string,
     school: string,
     degree: string,
     startDate: string,
@@ -57,6 +71,7 @@ export interface EmploymentHistoryForm {
     city: string,
     currentlyStudying: Boolean
 }
+
 export interface Item {
     id: number;
     name: string;
@@ -75,8 +90,9 @@ export function generateFakeData(): Item {
         createdAt: new Date(),
     };
 }
+
 // Skills
 export interface Skill {
     id: ID,
-    name:string
+    name: string
 }

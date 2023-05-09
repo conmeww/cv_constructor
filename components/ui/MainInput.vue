@@ -48,12 +48,13 @@ defineEmits(["update:modelValue"]);
         :placeholder="name"
         :type="type"
         :value="modelValue"
-        class="w-full px-4  h-10 bg-gray-100 appearance-none border-b-2  border-transparent  focus:outline-none  focus:border-blue-custom focus:border-b-2"
+        class="w-full px-4 rounded h-10 bg-gray-custom appearance-none border-b-2  border-transparent  focus:outline-none  focus:border-blue-custom focus:border-b-2"
 
         @input="
         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
       "/>
   </div>
+
 </template>
 <style scoped>
 

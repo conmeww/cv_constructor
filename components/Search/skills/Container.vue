@@ -23,7 +23,7 @@ import {reactive, ref} from "vue";
 import {Skill} from "~/types";
 import {onClickOutside} from '@vueuse/core'
 import {useFormStore} from "~/store";
-import Json from '../../../mock/skills.json'
+import Json from '../../../mockData/skills.json'
 import {retry} from "rxjs/src/internal/operators/retry";
 
 let showSkillList = ref(false)

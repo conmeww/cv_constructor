@@ -42,20 +42,43 @@ defineEmits(["update:modelValue"]);
         <!--- End tooltip --->
       </div>
     </div>
+    <div class="expand w-full rounded inline-block overflow-hidden relative" tabindex="0">
     <input
-
         id="4"
         :placeholder="name"
         :type="type"
         :value="modelValue"
-        class="w-full px-4 rounded h-10 bg-gray-custom appearance-none border-b-2  border-transparent  focus:outline-none  focus:border-blue-custom focus:border-b-2"
+        class=" w-full px-4 rounded h-10 bg-gray-custom appearance-none   focus:outline-none "
 
         @input="
         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
       "/>
+      <div class="block absolute border bg-blue-custom w-full"></div>
   </div>
+  </div>
+
+
+
 
 </template>
 <style scoped>
+.expand input {
+  background: #eee;
+  padding: 10px;
+  border: none;
+}
+.border {
 
+  height: 3px;
+
+  top: 94%;
+
+  transform: scaleX(0);
+  transition: transform 0.2s;
+  transform-origin:  center;
+}
+
+input:focus + .border, .expand:focus .border {
+  transform: scaleX(1);
+}
 </style>

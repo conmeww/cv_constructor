@@ -3,8 +3,7 @@
 Single Page Application built with Nuxt v3 that helps to create resume and provides several beautiful PDF templates for it.
 
 
-[![forthebadge](http://forthebadge.com/images/badges/made-with-nuxt.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/images/badges/built-with-vue.svg)](http://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](https://forthebadge.com)
 
 [![Gem Version](https://badge.fury.io/rb/colorls.svg)](https://badge.fury.io/rb/colorls)
 [![CI](https://github.com/athityakumar/colorls/actions/workflows/ruby.yml/badge.svg)](https://github.com/athityakumar/colorls/actions/workflows/ruby.yml)

@@ -1,13 +1,12 @@
 # Nuxt SPA
 
-CV Builder
+Single Page Application built with Nuxt v3 that helps to create resume and provides several beautiful PDF templates for it.
 
 **Includes**
 - Nuxt v3.3
+- Typescript
 - TailwindCSS
-- Reasonable base styles
-- Pages directory
-- Default layout
+
 
 **Instructions**
 ```

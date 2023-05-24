@@ -12,7 +12,7 @@ Single Page Application built with Nuxt v3 that helps to create resume and provi
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
+  <a href="#how-to-use">How To Use</a> 
 </p>
 
 

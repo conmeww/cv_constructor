@@ -47,10 +47,12 @@ Single Page Application built with Nuxt v3 that helps to create resume and provi
 
 # Install dependencies
 $ npm install
+
 $ yarn install 
 
 # Run the app
 $ npm run dev
+
 $ yarn run dev
 
 ```

@@ -2,13 +2,11 @@
 
 Single Page Application built with Nuxt v3 that helps to create resume and provides several beautiful PDF templates for it.
 
+![made-with-nuxt-3](https://github.com/conmeww/cv_constructor/assets/73779105/2c0f18ba-700c-46c4-9f82-05a55b77ff71)
 
 
 
-![made-with-nuxt-3](https://github.com/conmeww/cv_constructor/assets/73779105/fcb984ad-87a7-4055-8603-9d![uses-typescript](https://github.com/conmeww/cv_constructor/assets/73779105/43eb4075-27af-4fdc-8ae3-24c77ef20ca5)
-1f99c75e8b)
-
-
+![uses-typescript](https://github.com/conmeww/cv_constructor/assets/73779105/1195a218-2265-46e4-b4db-804e787ff1f2)
 
 
 <p align="center">

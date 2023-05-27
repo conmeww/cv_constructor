@@ -25,12 +25,12 @@ defineEmits(["update:modelValue"]);
   <div class="w-full">
     <div class="flex items-center pb-1">
       <label :label="label" class="block text-base font-medium text-gray-500 transition-all
-     duration-75 ease-in-out group-focus-within:text-blue-custom capitalize" for="4">{{ label }}</label>
+     duration-75 ease-in-out group-focus-within:text-blue-custom capitalize">{{ label }}</label>
       <div v-if="showTooltip" class="relative flex flex-col items-center group w-5 ml-2">
         <QuestionMarkCircleIcon class="relative h-5 w-5 text-blue-custom  cursor-pointer"/>
         <!--- Tooltip --->
         <div
-            class="w-full absolute bottom-0 duration-500 flex flex-col items-center invisible opacity-0 mb-7 group-hover:visible group-hover:opacity-100">
+            class="w-full absolute bottom-0 duration-300 flex flex-col items-center invisible opacity-0 mb-7 group-hover:visible group-hover:opacity-100">
           <span class="whitespace-nowrap inline-block px-3 py-2 text-sm
     font-medium text-white   bg-gray-900
     rounded-lg shadow-sm  ">
@@ -53,32 +53,24 @@ defineEmits(["update:modelValue"]);
         @input="
         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
       "/>
-      <div class="block absolute border bg-blue-custom w-full"></div>
+      <div class="block absolute border-expand   bg-blue-custom w-full"></div>
   </div>
   </div>
-
-
-
-
 </template>
 <style scoped>
 .expand input {
-  background: #eee;
   padding: 10px;
   border: none;
 }
-.border {
-
+.border-expand {
   height: 3px;
-
   top: 94%;
-
   transform: scaleX(0);
   transition: transform 0.2s;
   transform-origin:  center;
 }
-
-input:focus + .border, .expand:focus .border {
+input:focus + .border-expand, .expand:focus .border-expand{
   transform: scaleX(1);
+  border-width: 0;
 }
 </style>

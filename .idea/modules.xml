@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Nuxt-Tailwind-Template-main.iml" filepath="$PROJECT_DIR$/.idea/Nuxt-Tailwind-Template-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cv_constructor.iml" filepath="$PROJECT_DIR$/.idea/cv_constructor.iml" />
     </modules>
   </component>
 </project>

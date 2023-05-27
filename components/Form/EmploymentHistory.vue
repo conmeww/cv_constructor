@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b border-gray-900/10 pb-12 w-full">
+  <div class=" pb-12 w-full">
     <h2 class="text-base font-semibold leading-7 text-gray-900">Employment History</h2>
     <div class="mt-7 grid grid-cols-2 gap-3">
       <div class="col-span-1">
@@ -9,8 +9,9 @@
         <UiMainInput label="Employer" placeholder="Employer"/>
       </div>
       <div class="flex gap-3 items-end relative col-span-1">
+        <p class="absolute left-0 top-0 block text-sm font-medium text-gray-500 transition-all duration-75 ease-in-out group-focus-within:text-blue-custom capitalize">Start & End date</p>
         <div class="col-span-1">
-          <UiDatePicker label="Start & End date"/>
+          <UiDatePicker label=""/>
         </div>
         <div>
           <UiDatePicker/>

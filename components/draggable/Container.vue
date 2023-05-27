@@ -4,8 +4,9 @@ import {Container, Draggable} from 'vue3-smooth-dnd'
 import {DropResult} from 'smooth-dnd'
 import {nanoid} from "nanoid";
 import type {DraggableItem,EducationForm} from '../../types/index';
-import {useDraggableStore} from "~/store";
+import {useDraggableStore, useFormStore} from "~/store";
 const draggableStore = useDraggableStore();
+const formStore = useFormStore();
 type DraggableItemList = Array<DraggableItem>
 let focused = ref(false)
 
@@ -53,14 +54,14 @@ defineExpose({
     <Container class="h-auto" :drop-placeholder="{ className:
             `bg-gray-300 bg-opacity-20 rounded-sm`,
           animationDuration: '100',
-          showOnTop: true }" drag-class="border border-primary-hover
+          showOnTop: true }" drag-class=" border border-primary-hover
             transition duration-100 ease-in z-50 opacity-80 shadow-md cursor-grabbing" drag-handle-selector=".handle"
-               drop-class="transition duration-100 ease-in  z-50"
+               drop-class="transition duration-500 ease-in  z-20"
                orientation="vertical" @drop="onDrop">
       <Draggable v-for="(item, i) in items.value" :key="item.id"
                  class="drag-item  py-2 rounded-sm   relative  flex  h-auto">
         <DraggableItem  :formType="formType" :item="item" class="bg-white transition border-gray-100 border rounded-sm  duration-400 ease-in min-h-[70px]"
-                       @delete="draggableStore.deleteItem($event), items.value = items.value.filter(item => item.id !== $event)"/>
+                       @delete="draggableStore.deleteItem($event),formStore.deleteForm($event), items.value = items.value.filter(item => item.id !== $event)"/>
       </Draggable>
       <div>
       </div>
@@ -80,4 +81,5 @@ defineExpose({
 .ease-custom {
   transition-timing-function: cubic-bezier(.61, -0.53, .43, 1.43);
 }
+
 </style>

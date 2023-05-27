@@ -1,4 +1,23 @@
-- rotate animation icon - show more form/personaldetails.vue
-- edit input - not specified dropdown  title
+- add text editor summary
+- update forms on click outside
+- loader on drag item or hide content on click
+- website links add
+- bio add date
+- languages
+- driving license
+- add languages
+- suggest countries/ city
+- date - present
+- experience add text editor
+- api skills/ jobs
+- validation email/ phone
+- start page
+     - new resume
+     - old
+     - paid options(more templates, more than 1 resume, translate)
 
-delete form - store
+
+--- PDF PREVIEW ---
+- add icons
+- font styles
+- bg solid color

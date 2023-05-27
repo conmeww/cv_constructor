@@ -25,6 +25,7 @@ function addItem(e: Event) {
     content:formStore.itemsEdu.filter(item => item.parent === parentId)
   } as DraggableItem)
   data.value = ""
+  console.log(formStore.itemsEdu)
 }
 
 

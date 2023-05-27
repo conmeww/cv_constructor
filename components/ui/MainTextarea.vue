@@ -23,12 +23,35 @@ withDefaults(defineProps<{
         </div>
       </div>
     </div>
+
+
+
+    <div class="expand w-full rounded h-44 inline-block overflow-hidden relative" tabindex="0">
     <textarea :placeholder="placeholder"
-              class="resize-y rounded-am  w-full px-4 pt-2 h-10 bg-gray-50
-              appearance-none border-b-2  border-transparent  focus:outline-none focus:bg-white focus:border-blue-custom focus:border-b-2"
+              class="resize-none rounded overflow-y-scroll w-full px-4 pt-2 h-44 bg-gray-custom
+              appearance-none  focus:outline-none  "
     ></textarea>
+      <div class="block absolute border-expand   bg-blue-custom w-full"></div>
+    </div>
   </div>
 </template>
 <style scoped>
+
+.expand textarea {
+  padding: 10px;
+  border: none;
+}
+.border-expand {
+  height: 3px;
+  bottom: 0px;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+  transform-origin:  center;
+}
+textarea:focus + .border-expand, .expand:focus .border-expand{
+  transform: scaleX(1);
+  border-width: 0;
+}
+
 
 </style>

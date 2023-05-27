@@ -24,7 +24,7 @@ const a = onKeyStroke("Backspace", (e) => {
   <div class="relative h-auto" tabindex="0"
        @blur="focused = false"
        @focus="focused = true">
-    <DraggableDragHandle class="pr-2 absolute -left-8 top-6"/>
+    <DraggableDragHandle class="pr-2 absolute -left-8 top-6" />
     <div class="accordion min-h-[70px]  cursor-pointer">
       <p class="accordion-name absolute pt-7 z-20 w-full h-[70px] text-left pl-6 text-black font-semibold hover:text-blue-custom transition duration-400 "
          @click="accordionVisible = !accordionVisible">
@@ -35,14 +35,14 @@ const a = onKeyStroke("Backspace", (e) => {
           class="pointer-events-auto  h-5 w-5 absolute right-10 top-8 text-gray-400 delay-200"
       />
       <div :class="{'accordion-show':accordionVisible === true}"
-           class=" accordion-content pt-20 px-6 bg-white border border-gray-100">
+           class=" accordion-content pt-20 px-6 bg-white">
         <div class="absolute w-7 h-7 -right-9 top-6 text-center" data-tooltip-target="tooltip-delete">
           <TrashIcon aria-hidden="true" class="h-7 w-7 cursor-pointer stroke-gray-400 hover:stroke-blue-custom"
                      @click="$emit('delete',props.item.id)"/>
         </div>
         <UiTooltip tooltipContent="Delete" tooltipId="tooltip-delete"/>
         <div :class="{'opacity-0 invisible duration-100':accordionVisible === false}"
-             class="duration-600 transition-all delay-300">
+             class="duration-300 transition-all delay-300">
           <component :is="formType"></component>
         </div>
 
@@ -67,6 +67,5 @@ const a = onKeyStroke("Backspace", (e) => {
   max-height: 800px;
   height: auto;
 }
-
 
 </style>

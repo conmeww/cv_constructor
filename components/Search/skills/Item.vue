@@ -1,7 +1,7 @@
 <template>
-  <div class="p-3 bg-gray-100 rounded relative">
+  <div class="p-3 pr-10 bg-gray-100 rounded relative ">
     <XMarkIcon aria-hidden="true" class="right-3 cursor-pointer absolute h-6 w-6 fill-gray-900" @click="emit('delete',skill)"/>
-    <p class="text-gray-900 text-base pr-9">
+    <p class="text-gray-900 text-base">
 {{skill.name}}
     </p>
   </div>

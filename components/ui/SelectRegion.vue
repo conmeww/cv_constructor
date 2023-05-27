@@ -1,25 +1,24 @@
 <template>
   <div class="w-full">
-    <label :label="label" class="block w-full pb-1 text-sm font-medium text-gray-500 transition-all
-     duration-75 ease-in-out group-focus-within:text-blue-custom
-      capitalize" for="4">Country</label>
+    <label  class="block text-base font-medium text-gray-500 transition-all
+     duration-75 ease-in-out group-focus-within:text-blue-custom capitalize">{{label}}</label>
     <Combobox v-model="selected">
-      <div class="relative mt-1">
-        <div
-            class="relative w-full cursor-default overflow-hidden  bg-white text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
-        >
-
-          <ComboboxInput
-              :displayValue="(person) => person.name"
-              class="w-full px-4  h-10 bg-gray-50 appearance-none border-b-2  border-transparent  focus:outline-none focus:bg-white focus:border-blue-custom focus:border-b-2"
-              @change="query = $event.target.value"
-          />
+      <div class="relative mt-0">
+        <div class="relative w-full cursor-default overflow-hidden  bg-white text-left h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
           <ComboboxButton
-              class="absolute inset-y-0 right-0 flex items-center pr-2"
-          >
-            <ChevronUpDownIcon
+              class="relative inset-y-0 w-full flex items-center">
+          <div class="expand w-full rounded inline-block overflow-hidden relative" tabindex="0">
+            <ComboboxInput
+                :displayValue="(person) => person.name"
+                class="w-full px-4 cursor-pointer h-10 bg-gray-custom
+                appearance-none
+                  focus:outline-none"
+                @change="query = $event.target.value" :placeholder="placeholder"/>
+            <div class="block absolute border-expand bg-blue-custom w-full"></div>
+          </div>
+            <ChevronDownIcon
                 aria-hidden="true"
-                class="h-5 w-5 text-gray-400"
+                class="h-5 w-5 text-gray-400 absolute right-4"
             />
           </ComboboxButton>
         </div>
@@ -30,42 +29,35 @@
             @after-leave="query = ''"
         >
           <ComboboxOptions
-              class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base  ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-          >
+              class="absolute  z-10 max-h-60 w-full
+               overflow-auto  bg-gray-custom text-base rounded mt-1  shadow-md focus:outline-none">
             <div
                 v-if="filteredPeople.length === 0 && query !== ''"
-                class="relative cursor-default select-none py-2 px-4 text-gray-700"
-            >
+                class="relative cursor-default select-none py-2 px-4 text-gray-900">
               Nothing found.
             </div>
-
             <ComboboxOption
                 v-for="person in filteredPeople"
                 :key="person.id"
                 v-slot="{ selected, active }"
                 :value="person"
-                as="template"
-            >
+                as="template">
               <li
-                  :class="{
-                  'bg-blue-custom text-white': active,
-                  'text-gray-900': !active,
-                }"
-                  class="relative cursor-default select-none py-2 pl-10 pr-4"
-              >
+                  class="relative cursor-pointer
+                    select-none px-4 py-2"
+                  :class="{ 'bg-blue-custom text-white': selected, 'bg-gray-custom hover:bg-sky-100 hover:text-blue-custom-light': !selected }">
                 <span
                     :class="{ 'font-medium': selected, 'font-normal': !selected }"
-                    class="block truncate"
-                >
+                    class="block truncate">
                   {{ person.name }}
                 </span>
-                <span
-                    v-if="selected"
-                    :class="{ 'text-white': active, 'text-teal-600': !active }"
-                    class="absolute inset-y-0 left-0 flex items-center pl-3"
-                >
-                  <CheckIcon aria-hidden="true" class="h-5 w-5"/>
-                </span>
+                <!--                <span-->
+                <!--                    v-if="selected"-->
+
+                <!--                    class="absolute inset-y-0 left-0 flex items-center pl-3"-->
+                <!--                >-->
+                <!--                  <CheckIcon aria-hidden="true" class="h-5 w-5"/>-->
+                <!--                </span>-->
               </li>
             </ComboboxOption>
           </ComboboxOptions>
@@ -75,8 +67,8 @@
   </div>
 </template>
 
-<script setup  lang="ts">
-import {ref, computed} from 'vue'
+<script setup lang="ts">
+import {ref, computed, defineProps, defineEmits} from 'vue'
 import {
   Combobox,
   ComboboxInput,
@@ -85,8 +77,15 @@ import {
   ComboboxOption,
   TransitionRoot,
 } from '@headlessui/vue'
-import {CheckIcon, ChevronUpDownIcon} from '@heroicons/vue/20/solid'
+import {CheckIcon, ChevronDownIcon} from '@heroicons/vue/20/solid'
 
+withDefaults(defineProps<{
+  label?: string
+  placeholder?: string,
+  modelValue: string;
+}>(), {
+})
+defineEmits(["update:modelValue"]);
 const people = [
   {id: 1, name: 'Wade Cooper'},
   {id: 2, name: 'Arlene Mccoy'},
@@ -110,3 +109,22 @@ let filteredPeople = computed(() =>
         )
 )
 </script>
+<style scoped>
+.expand input {
+  padding: 10px;
+  border: none;
+}
+
+.border-expand {
+  height: 3px;
+  top: 94%;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+  transform-origin: center;
+}
+
+input:focus + .border-expand, .expand:focus .border-expand {
+  transform: scaleX(1);
+  border-width: 0;
+}
+</style>

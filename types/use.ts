@@ -4,6 +4,5 @@ export const usePDF = (): any => {
     const internalInstance = getCurrentInstance()
     const pdf = (internalInstance as ComponentInternalInstance).appContext
         .config.globalProperties.$pdf
-
     return pdf as any
 }

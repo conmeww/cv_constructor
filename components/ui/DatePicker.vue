@@ -1,9 +1,14 @@
 <template>
-  <label :label="label" class="block text-sm font-medium text-gray-500 transition-all
-     duration-75 ease-in-out group-focus-within:text-blue-custom capitalize" >{{ label }}</label>
-  <VueDatePicker auto-apply  v-model="modelValue"   calendar-class-name="dp-custom-menu" locale="ru" month-picker
-                 @update:model-value="$emit('update:modelValue',modelValue)"
-  />
+
+  <div class=" w-full rounded inline-block overflow-hidden relative" tabindex="0">
+    <label :label="label" class="block text-sm font-medium text-gray-500 transition-all
+     duration-75 ease-in-out group-focus-within:text-blue-custom capitalize">{{ label }}</label>
+    <VueDatePicker auto-apply v-model="modelValue" calendar-class-name="dp-custom-menu" locale="ru" month-picker
+                   @update:model-value="$emit('update:modelValue',modelValue)"
+                   class=" w-full  rounded h-10 bg-gray-custom appearance-none   focus:outline-none "
+    />
+
+  </div>
 </template>
 <script lang="ts" setup>
 import {defineEmits, ref} from 'vue';
@@ -13,7 +18,7 @@ import '@vuepic/vue-datepicker/dist/main.css'
 withDefaults(defineProps<{
   label?: string
   placeholder?: string,
-  showTooltip:Boolean
+  showTooltip: Boolean
 }>(), {
   // defaults
 })
@@ -74,15 +79,15 @@ defineEmits(["update:modelValue"]);
 
 }
 
-.dp__input {
-  border-bottom: 2px solid transparent;
-  border-radius: 0;
-  background-color: #f3f4f6 !important;
+
+.dp__input_focus, .dp__input {
+  background-color: #eff2f9 !important;
+  border: none;
+  height:40px !important;
 }
 
-.dp__input_focus {
-  background-color: #f3f4f6 !important;
-  border-bottom: 2px solid var(--color-main) !important;
+.dp__input_wrap {
+  height: 100% !important;
 }
 
 .dp__overlay_cell_active {

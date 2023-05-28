@@ -1,6 +1,6 @@
 # CV builder
 
-Single Page Application built with Nuxt v3 that helps to create resume and provides several beautiful PDF templates for it.
+Single Page Application built with Vue3x + Nuxt3x that helps to create resume and provides several beautiful PDF templates for it.
 
 ![made-with-nuxt-3](https://github.com/conmeww/cv_constructor/assets/73779105/2c0f18ba-700c-46c4-9f82-05a55b77ff71)
 

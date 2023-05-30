@@ -1,5 +1,5 @@
 <template>
-  <form class="w-full" ref="formBio">
+  <form ref="formBio" class="w-full">
 
     <div class="grid grid-cols-2 gap-6">
       <div class="col-span-full">
@@ -19,7 +19,7 @@
         <UiMainInput v-model="phone" label="Phone" placeholder="Phone"/>
       </div>
       <div class="col-span-1">
-        <UiSelectRegion  v-model="country" label="Country" placeholder="Country"/>
+        <UiSelectRegion v-model="country" label="Country" placeholder="Country"/>
 
       </div>
       <div class="col-span-1">
@@ -30,16 +30,16 @@
       <div :class="{'accordion-show':accordionVisible === true}" class="accordion-content">
         <div class="grid grid-cols-2 gap-6 mt-6">
           <div class="col-span-1">
-            <UiMainInput label="Date Of Birth" placeholder="Date Of Birth"
-            />
+            <UiDatePicker present v-model="birthDate" label="Date of birth"/>
+            <UiDatePicker  v-model="birthDate" label="Date of birth"/>
           </div>
           <div class="col-span-1">
             <UiMainInput label="Driving License" placeholder="Driving License"/>
           </div>
         </div>
-        <button @click="onInput($event)"> ADD</button>
+
       </div>
-      <p class="w-48 mt-6 h-[70px] text-left font-semibold text-blue-custom transition relative  cursor-pointer"
+      <p class="w-full bg-white mt-6 h-[70px] text-left font-semibold text-blue-custom transition relative  cursor-pointer"
          @click="accordionVisible = !accordionVisible">
         {{ accordionVisible ? 'Hide' : 'Show' }} additional detail
         <ChevronDownIcon
@@ -50,6 +50,7 @@
       </p>
     </div>
   </form>
+  <button @click="onInput($event)"> ADD</button>
 </template>
 <script lang="ts" setup>
 import {ref, reactive, onMounted} from 'vue';
@@ -78,21 +79,21 @@ const onInput = (e: Event) => {
 
   formStore.addBioForm({
     id: nanoid(),
-  //  wantedJob: wantedJob.value,
-   // firstName: firstName.value,
-  //  lastName: lastName.value,
-   // birthDate: birthDate.value,
-   // email: email.value,
-   // phone: phone.value,
-   // country: country.value,
-   // city: city.value,
+    //  wantedJob: wantedJob.value,
+    // firstName: firstName.value,
+    //  lastName: lastName.value,
+    // birthDate: birthDate.value,
+    // email: email.value,
+    // phone: phone.value,
+    // country: country.value,
+    // city: city.value,
     //drivingLicense: drivingLicense.value
-    wantedJob:'Job title',
+    wantedJob: 'Job title',
     firstName: 'First name',
     lastName: 'Last name',
-    birthDate:'21.07.1991',
+    birthDate: '21.07.1991',
     email: 'mailmail@mail.com',
-    phone:89114567730,
+    phone: 89114567730,
     country: 'Russia',
     city: 'Moscow',
     drivingLicense: true
@@ -101,11 +102,11 @@ const onInput = (e: Event) => {
 // save data on click outside the form
 const formBio = ref(null)
 onClickOutside(formBio, (e: Event) => {
-  formStore.updateForm('bio',{
+  formStore.updateForm('bio', {
     id: nanoid(),
-     wantedJob: wantedJob.value,
+    wantedJob: wantedJob.value,
     firstName: firstName.value,
-     lastName: lastName.value,
+    lastName: lastName.value,
     birthDate: birthDate.value,
     email: email.value,
     phone: phone.value,
@@ -134,6 +135,10 @@ const formType = reactive({
   transition: max-height .4s ease-in-out;
   overflow: hidden;
   max-height: 0;
+}
+
+.accordion-show.accordion-content {
+  overflow: visible;
 }
 
 .accordion-show {

@@ -1,10 +1,12 @@
 <template>
 
-  <div class=" w-full rounded inline-block overflow-hidden relative" tabindex="0">
-    <label :label="label" class="block text-sm font-medium text-gray-500 transition-all
-     duration-75 ease-in-out group-focus-within:text-blue-custom capitalize">{{ label }}</label>
+  <div class=" w-full rounded inline-block  relative" tabindex="0">
+    <label :label="label" class="
+    block text-base font-medium text-gray-500
+    transition-all duration-75 ease-in-out group-focus-within:text-blue-custom capitalize pb-1
+    ">{{ label }}</label>
     <VueDatePicker auto-apply v-model="modelValue" calendar-class-name="dp-custom-menu" locale="ru" month-picker
-                   @update:model-value="$emit('update:modelValue',modelValue)"
+                   @update:model-value="$emit('update:modelValue',modelValue)"  show-now-button now-button-label="Current"
                    class=" w-full  rounded h-10 bg-gray-custom appearance-none   focus:outline-none "
     />
 
@@ -18,7 +20,8 @@ import '@vuepic/vue-datepicker/dist/main.css'
 withDefaults(defineProps<{
   label?: string
   placeholder?: string,
-  showTooltip: Boolean
+  showTooltip: Boolean,
+  present:Boolean
 }>(), {
   // defaults
 })
